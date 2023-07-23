@@ -11,7 +11,7 @@
 </head>
 
 <body class="bg-light">
-    <header class="bg-white py-4 text-center text-black-50 shadow-sm">
+    <header class="bg-white py-4 text-center text-black text-opacity-25 shadow-sm">
         <h1>Weather Dashboard</h1>
     </header>
 
@@ -34,7 +34,7 @@
         <div class="right-container col-9">
             <!-- add hidden (to upper) for when 'searched', right container appears -->
             <section class="info-card city-name date bg-primary">
-                <h3 id="today"></h3>
+                <h3 id="current-date"></h3>
                 <!-- today's date -->
                 <!-- today's weather info -->
                 <p>this is where the today's forecast is displayed</p>
@@ -49,6 +49,8 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"></script>
     <script src="assets/script.js"></script>
 </body>
 
