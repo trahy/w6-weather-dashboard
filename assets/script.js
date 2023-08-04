@@ -2,6 +2,8 @@ var searchHistory = []
 
 // 
 // DELETE BEFORE COMMIT
+var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q="
+var appID = "&units=metric&appid="
 // DELETE BEFORE COMMIT
 // 
 
@@ -10,7 +12,7 @@ $('#current-date').text(dayjs().format('(MM/DD/YYYY)'));
 
 // calling weather api function
 var getWeather = function (city) {
-    var weatherAPI = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric&appid=" + this.apiKey;
+    var weatherAPI = apiUrl + city + appID + apiKey;
 
     // makes a request to the url
     fetch(weatherAPI)
@@ -18,6 +20,10 @@ var getWeather = function (city) {
             return response.json();
         })
         .then(function (data) {
-            console.log(data)
+            console.log(data);
+        })
+        .catch(function (error) {
+            console.log(error);
         })
 }
+getWeather();
