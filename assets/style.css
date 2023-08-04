@@ -1,11 +1,19 @@
 * {
-    box-sizing: border-box;
-    text-decoration: none;
     margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    box-sizing: border-box;
 }
 
-h1 {
+#title {
     font-family: 'Archivo Black', sans-serif;
+}
+
+#today-img {
+    background-color: orange;
+    width: 200px;
+    height: 250px;
 }
 
 /* .right-container {
