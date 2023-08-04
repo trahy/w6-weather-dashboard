@@ -2,7 +2,6 @@ var searchHistory = []
 
 // 
 // DELETE BEFORE COMMIT
-var apiKey = "c3fc82326b5204d58c40763d162c915e"
 // DELETE BEFORE COMMIT
 // 
 
