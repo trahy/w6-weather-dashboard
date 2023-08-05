@@ -23,7 +23,20 @@ var getWeather = function (city) {
             console.log(data);
         })
         .catch(function (error) {
-            console.log(error);
-        })
+            console.error(error);
+        });
+        
+    displayWeather = function (data) {
+
+        $("#city").innerHTML = data.name;
+        $("#temp_max").innerHTML = Math.round(data.main.temp_max) + "°C";
+        $("#temp_min").innerHTML = Math.round(data.main.temp_min) + "°C";
+        $("#wind").innerHTML = data.wind.speed + " km/h";
+        $("#humidity").innerHTML = data.main.humidity + "%";
+    }
 }
+console.log(getWeather);
+
+// attaching data to file
+
 getWeather();
