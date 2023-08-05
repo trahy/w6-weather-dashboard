@@ -4,6 +4,7 @@ var searchHistory = []
 // DELETE BEFORE COMMIT
 var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q="
 var appID = "&units=metric&appid="
+var apiKey = "c3fc82326b5204d58c40763d162c915e"
 // DELETE BEFORE COMMIT
 // 
 
@@ -19,24 +20,21 @@ var getWeather = function (city) {
         .then(function (response) {
             return response.json();
         })
+        // attaching data to file
         .then(function (data) {
+            $("#city").text(data.name);
+            $("#temp_max").text(Math.round(data.main.temp_max) + "°C");
+            $("#temp_min").text(Math.round(data.main.temp_min) + "°C");
+            $("#wind").text(data.wind.speed + " km/h");
+            $("#humidity").text(data.main.humidity + "%");
             console.log(data);
         })
         .catch(function (error) {
             console.error(error);
         });
-        
-    displayWeather = function (data) {
 
-        $("#city").innerHTML = data.name;
-        $("#temp_max").innerHTML = Math.round(data.main.temp_max) + "°C";
-        $("#temp_min").innerHTML = Math.round(data.main.temp_min) + "°C";
-        $("#wind").innerHTML = data.wind.speed + " km/h";
-        $("#humidity").innerHTML = data.main.humidity + "%";
-    }
+
 }
 console.log(getWeather);
-
-// attaching data to file
 
 getWeather();
