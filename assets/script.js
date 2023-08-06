@@ -35,6 +35,20 @@ var getWeather = function (city) {
 }
 console.log(getWeather);
 
-getWeather();
+function handleSearch(event) {
+    event.preventDefault();
+
+    var searchInp = $('#search-inp').value;
+
+    if (!searchInp) {
+        console.error('You need to enter a city name.');
+        return;
+    }
+
+    var getResult = apiUrl + searchInp + appID + apiKey;
+    location.assign(getResult);
+}
+
+$("#search").on("submit", handleSearch);
 
 // var forecastAPI = forecastUrl + city + appID + apiKey
