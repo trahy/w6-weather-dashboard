@@ -12,10 +12,5 @@
 
 #icon {
     width: 150px;
-    height: 200px;
-    padding: 10px;
+    height: auto;
 }
-
-/* .right-container {
-    display: none;
-} */
