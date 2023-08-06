@@ -18,7 +18,7 @@
 
     <div class="container-fluid d-flex w-75 mt-5">
 
-        <aside class="left-container col-3 bg-warning px-5">
+        <aside class="left-container col-3 px-5">
             <h3>Search for a city:</h3>
             <form id="search" class="d-flex">
                 <input type="text" id="input" class="form-control" placeholder="Enter city name">
@@ -34,22 +34,24 @@
 
         <div class="right-container col-9 px-5">
             <!-- add hidden (to upper) for when 'searched', right container appears -->
-            <section class="info-card city-name date mb-5">
+            <section class="info-card bg-white rounded py-4 shadow-sm mb-5">
                 <div>
-                    <h3 id="current-date" class="mb-3"></h3>
                     <h3 id="city"></h3>
                 </div>
                 <!-- today's date -->
                 <div class="d-flex">
-                    <div id="icon"></div>
-                    <div>
+                    <div class="align-middle">
+                        <img id="icon" class="bg-mute rounded align-center"></img>
+                    </div>
+                    <div class="ms-5">
+                        <h3 id="current-date" class="mb-3"></h3>
                         <div class="d-flex text-center mb-3 fs-4 text-black-50">
                             <div>
-                                <h3 id="temp_max" class="fs-1 fw-bold text-danger">22°C</h3>
+                                <h3 id="temp_max" class="fs-2 fw-bold text-danger">22°C</h3>
                                 <p>MAX</p>
                             </div>
                             <div class="ms-3">
-                                <h3 id="temp_min" class="fs-1 fw-bold text-primary">13°C</h3>
+                                <h3 id="temp_min" class="fs-2 fw-bold text-primary">13°C</h3>
                                 <p>MIN</p>
                             </div>
                         </div>

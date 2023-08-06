@@ -20,23 +20,24 @@ var getWeather = function (city) {
         .then(function (response) {
             return response.json();
         })
-        // attaching data to doc
         .then(function (data) {
             displayData(data);
         })
         .catch(function (error) {
             console.error(error);
         });
+
 }
-console.log(getWeather);
 
 
+// attaching data to doc
 function displayData(data) {
     $("#city").text(data.city.name + ", " + data.city.country);
     $("#temp_max").text(Math.round(data.list[0].main.temp_max) + "°C");
     $("#temp_min").text(Math.round(data.list[0].main.temp_min) + "°C");
     $("#wind").text("Wind: " + data.list[0].wind.speed + " km/h");
     $("#humidity").text("Humidity: " + data.list[0].main.humidity + "%");
+    $("#icon").attr("src",("assets/img/" + data.list[0].weather[0].icon + ".svg"));
 
     console.log(data);
 }
@@ -46,12 +47,19 @@ function handleSearch(event) {
 
     var input = $("#input").val();
 
+    // if (!input) {
+    //     console.error('You need to enter a city name.');
+    //     return;
+    // }
     if (!input) {
-        console.error('You need to enter a city name.');
-        return;
+        $("#input").addClass("border border-danger border-3");
+        $("#input").attr("placeholder", "✖ Input not valid.");
     }
-
-    getWeather(searchInp);
+    // else(){
+    //     return;
+    // }
+    getWeather(input);
 }
+
 
 $("#search").on("submit", handleSearch);
