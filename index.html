@@ -34,22 +34,22 @@
 
         <div class="right-container col-9 px-5">
             <!-- add hidden (to upper) for when 'searched', right container appears -->
-            <section class="info-card city-name date bg-primary mb-5">
-                <div class="d-flex">
+            <section class="info-card city-name date mb-5">
+                <div>
+                    <h3 id="current-date" class="mb-3"></h3>
                     <h3 id="city"></h3>
-                    <h3 id="current-date"></h3>
                 </div>
                 <!-- today's date -->
                 <div class="d-flex">
                     <div id="icon"></div>
                     <div>
-                        <div class="d-flex text-center">
-                            <div class="p-2">
-                                <h3 id="temp_max">22deg</h3>
+                        <div class="d-flex text-center mb-3 fs-4 text-black-50">
+                            <div>
+                                <h3 id="temp_max" class="fs-1 fw-bold text-danger">22°C</h3>
                                 <p>MAX</p>
                             </div>
-                            <div class="p-2">
-                                <h3 id="temp_min">13deg</h3>
+                            <div class="ms-3">
+                                <h3 id="temp_min" class="fs-1 fw-bold text-primary">13°C</h3>
                                 <p>MIN</p>
                             </div>
                         </div>
