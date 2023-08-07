@@ -83,15 +83,15 @@ function displayForecast(data) {
 
         // insert data into forecast cards
         let forecastCards = `
-        <div class="forecast-card col m-2 bg-white rounded py-4 shadow">
-            <div class="forecast-body p-1">
-                <h5 class="forecast-date">`+ date + `</h5>
-                <img src="`+ img +`" alt="weather icon">
-                <h3 class="forecast-temp">`+ temp + `°C</h3>
-                <p class="forecast-wind">Wind: `+ wind + `km/h</p>
-                <p class="forecast-humidity">Humidty: `+ humidity + `%</p>
+            <div id="forecast-card" class="col m-1 bg-white py-4 shadow-sm">
+                <div class="forecast-body text-center">
+                    <h5 class="forecast-date">`+ date + `</h5>
+                    <img class="forecast-img" src="`+ img +`" alt="weather icon">
+                    <h3 class="forecast-temp mb-3">`+ temp + `°C</h3>
+                    <p class="forecast-wind">Wind: `+ wind + `km/h</p>
+                    <p class="forecast-humidity">Humidty: `+ humidity + `%</p>
+                </div>
             </div>
-        </div>
         `;
 
         // attaches forecast to the doc

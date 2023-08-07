@@ -10,7 +10,29 @@
     font-family: 'Archivo Black', sans-serif;
 }
 
+#input {
+    background-color: white;
+}
+
 #icon {
+    width: 200px;
+    height: auto;
+}
+
+.forecast-img {
     width: 150px;
     height: auto;
+}
+
+#info-card{
+    border-radius: 10px;
+}
+
+#forecast-card{
+    border-radius: 10px;
+}
+
+p{
+    margin: 0;
+    line-height: 2rem;
 }
