@@ -22,10 +22,10 @@ var getWeather = function (city) {
         .then(function (data) {
             displayForecast(data);
         })
+
         .catch(function (error) {
             console.error(error);
         });
-
 }
 
 // attaching data to doc
@@ -61,7 +61,7 @@ function handleSearch(event) {
 // eventAddListener for search
 $("#search").on("submit", handleSearch);
 
-var searchHistory = []
+// var searchHistory = []
 
 function displayForecast(data) {
     // clears the forecast data
@@ -69,7 +69,7 @@ function displayForecast(data) {
 
     // loops data over time period
     //  24 hours/ 3 hour api recall = 8th value = 1 day 
-    for (i = 1; i <= data.list.length; i += 8) {
+    for (i = 1; i < data.list.length; i += 8) {
 
         // insert data into forecast cards
         let forecastCards = `
@@ -88,3 +88,5 @@ function displayForecast(data) {
         $("#forecast").append(forecastCards);
     }
 };
+
+console.log(data.list)
