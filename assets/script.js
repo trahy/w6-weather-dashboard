@@ -82,10 +82,10 @@ function displayForecast(data) {
     $("#forecast").empty();
 
     // loops data over time period
-    //  24 hours/ 3 hour api recall = 8th value = 1 day 
-    for (let i = 7; i <= data.list.length; i += 8) {
+    //  24 hours/ 3 hour api recall = 8 calls in 1 day
+    for (let i = 7; i < data.list.length; i += 8) {
 
-        let date = dayjs.unix(data.list[i].dt * 1000).format('ddd, MMMM D');
+        let date = dayjs.unix(data.list[i].dt).format('ddd, MMMM D');
         let img = `assets/img/${data.list[i].weather[0].icon}.svg`;
         let temp = Math.round(data.list[i]["main"]["temp"]);
         let wind = data.list[i]["wind"]["speed"];
