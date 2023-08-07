@@ -162,6 +162,13 @@ if (previousCity != ""){
     getWeather(previousCity);
 }
 
+// event listener to get stored city weather
+$("#search-history").on("click", function(event){
+    let lastCity = $(event.target).closest("a").attr("id");
+    getWeather(lastCity);
+});
+
+
 // event listener to clear history
 $("#clear-btn").on("click", function () {
     localStorage.clear();
