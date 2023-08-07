@@ -29,7 +29,7 @@ When a city is searched, the weather conditions will be saved under the city nam
 
 When the city in the search history is clicked, the curent and future weather conditions for the saved city will be presented to the user again.
 
-When the user clicks on the ==Clear All== button, then the search history will be erased.
+When the user clicks on the `Clear All` button, then the search history will be erased.
 
 
 ## Screenshot
