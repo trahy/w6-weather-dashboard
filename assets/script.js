@@ -97,7 +97,7 @@ function displayForecast(data) {
                     <h5 class="forecast-date">`+ date + `</h5>
                     <img class="forecast-img" src="`+ img + `" alt="weather icon">
                     <h3 class="forecast-temp mb-3">`+ temp + `°C</h3>
-                    <p class="forecast-wind">Wind: `+ wind + `km/h</p>
+                    <p class="forecast-wind">Wind: `+ wind + ` km/h</p>
                     <p class="forecast-humidity">Humidty: `+ humidity + `%</p>
                 </div>
             </div>
@@ -109,28 +109,24 @@ function displayForecast(data) {
 
 
     // saves the city name of previously searched
-    previousCity = data.city.name;
-
-    // save to the search history using the api's name value for consistancy
-    // this also keeps searches that did not return a result from populating the array
-    saveSearch(data.city.name);
+    let previousCity = data.city.name;
+    saveSearch(previousCity);
 };
 
 
 // function to save the city search history to local storage
 let saveSearch = function (city) {
+
     if (!searchHistory.includes(city)) {
         searchHistory.push(city);
         $("#search-history").append("<a href='#' class='list-group-item list-group-item-action' id='" + city + "'>" + city + "</a>")
     }
 
-    // save the searchHistory array to local storage
+    // saves information to local storage
     localStorage.setItem("cityWeather", JSON.stringify(searchHistory));
-
-    // save the lastCitySearched to local storage
     localStorage.setItem("previousCity", JSON.stringify(previousCity));
 
-    // display the searchHistory array
+    // calls function to load history
     loadSearch();
 };
 
@@ -148,7 +144,7 @@ let loadSearch = function() {
         previousCity = ""
     }
 
-    // clear any previous values from search-history ul
+    // clear any previous values from list
     $("#search-history").empty();
 
     // for loop that will run through all the citys found in the array
@@ -160,10 +156,9 @@ let loadSearch = function() {
 };
 loadSearch();
 
+// event listener to get stored city weather
 $("#search-history").on("click", function(event){
-    // get the links id value
     let lastCity = $(event.target).closest("a").attr("id");
-    // pass it's id value to the getCityWeather function
     getWeather(lastCity);
 });
 

@@ -32,6 +32,10 @@
     border-radius: 10px;
 }
 
+#forecast-card:hover{
+    filter: brightness(98%);
+}
+
 p{
     margin: 0;
     line-height: 2rem;
