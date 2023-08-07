@@ -17,34 +17,36 @@
     </header>
 
     <div class="container-fluid d-flex w-75 mt-5">
-
+        <!-- search input -->
         <aside class="left-container col-3 px-5">
-            <h3>Search for a city:</h3>
-            <form id="search" class="d-flex">
+            <h3 class="mb-3">Search for a city:</h3>
+            <form id="search" class="d-flex mb-4">
                 <input type="text" id="input" class="form-control" placeholder="Enter city name">
                 <button type="submit" id="search-btn" class="px-3 btn btn-primary bi bi-search"></button>
             </form>
             <div>
-                <ul id="history" class="search-list">
+                <ul id="search-history" class="last-city p-0 mt-3 rounded">
                     <!-- search history goes here -->
                 </ul>
-                <button type="submit" class="btn btn-primary ">Clear All</button>
+                <!-- clear all button -->
+                <button id="clear-btn" type="submit" class="btn btn-primary ">Clear All</button>
             </div>
         </aside>
 
-        <div class="right-container col-9 px-5">
-            <!-- add hidden (to upper) for when 'searched', right container appears -->
+        <div hidden class="right-container col-9 px-5">
+            <!-- Today's weather information -->
             <section id="info-card" class="bg-white m-1 py-4 shadow-sm mb-2">
                 <div class="text-center mb-5">
                     <h3 id="city" class="fw-bold"></h3>
                 </div>
-                <!-- today's date -->
                 <div class="d-flex justify-content-center">
                     <div class="d-flex align-middle">
                         <img id="icon"></img>
                     </div>
                     <div class="ms-5">
+                        <!-- today's date -->
                         <h3 id="current-date" class="mb-3"></h3>
+                        <!-- today's temperatures -->
                         <div class="d-flex text-center mb-3 fs-4 text-black-50">
                             <div>
                                 <h3 id="temp_max" class="fs-2 fw-bold text-danger">22°C</h3>
