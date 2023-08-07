@@ -34,9 +34,10 @@ function displayWeather(data) {
     // displays container upon search
     $('.right-container').removeAttr('hidden');
 
+    // resets search input after searched
     $('#search').trigger("reset");
 
-    // Remove invalid classes
+    // remove invalid classes
     $("#input").removeClass("border border-danger border-3");
     $("#input").attr("placeholder", "Enter city name");
 
@@ -82,7 +83,7 @@ function displayForecast(data) {
 
     // loops data over time period
     //  24 hours/ 3 hour api recall = 8th value = 1 day 
-    for (let i = 7; i < data.list.length; i += 8) {
+    for (let i = 7; i <= data.list.length; i += 8) {
 
         let date = dayjs.unix(data.list[i].dt * 1000).format('ddd, MMMM D');
         let img = `assets/img/${data.list[i].weather[0].icon}.svg`;
@@ -126,16 +127,14 @@ let saveSearch = function (city) {
     localStorage.setItem("cityWeather", JSON.stringify(searchHistory));
     localStorage.setItem("previousCity", JSON.stringify(previousCity));
 
-    // calls function to load history
-    loadSearch();
 };
 
-// function to load saved city search history from local storage
+// load function to set information
 let loadSearch = function() {
     searchHistory = JSON.parse(localStorage.getItem("cityWeather"));
     previousCity = JSON.parse(localStorage.getItem("previousCity"));
 
-    // if nothing in localStorage, create an empty searchHistory array and an empty lastCitySearched string
+    // creates an empty array if nothing is stored
     if (!searchHistory) {
         searchHistory = []
     }
@@ -154,14 +153,14 @@ let loadSearch = function() {
         $("#search-history").append("<a href='#' class='list-group-item list-group-item-action' id='" + searchHistory[i] + "'>" + searchHistory[i] + "</a>");
     }
 };
+
+// calls function to load history
 loadSearch();
 
-// event listener to get stored city weather
-$("#search-history").on("click", function(event){
-    let lastCity = $(event.target).closest("a").attr("id");
-    getWeather(lastCity);
-});
-
+// starts page with last searched city
+if (previousCity != ""){
+    getWeather(previousCity);
+}
 
 // event listener to clear history
 $("#clear-btn").on("click", function () {
